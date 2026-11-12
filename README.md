@@ -214,6 +214,3 @@ Do not broadly whitelist scanner errors just to make deployment pass. Unexpected
 - [ ] Document paths and file types not covered by the deployment.
 - [ ] Define an approved quarantine triage and restoration procedure.
 
-## License
-
-No license is included yet. Add a license file before inviting reuse or redistribution; without an explicit license, standard copyright restrictions apply.
