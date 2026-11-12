@@ -659,7 +659,7 @@ check_onaccess_errors() {
     # Known ClamAV DDD race during quarantine moves:
     # a short-lived .clamav-unlink-* staging directory disappears
     # while the DDD thread attempts to register an inotify watch.
-    known_race_re='ERROR: ClamInotif: (could not add element to hash table for .*/\.clamav-unlink-[^/[:space:]]+([[:space:]]|$)|watch descriptor issue when adding watch for .*/\.clamav-unlink-[^/[:space:]]+/\.rename-noreplace-dst([[:space:]]|$)|issue when adding watch for .*/\.clamav-unlink-[^/[:space:]]+/\.rename-noreplace-dst([[:space:]]|$))'
+    known_race_re='ERROR: ClamInotif: (could not add element to hash table for .*/\.clamav-unlink-[^/[:space:]]+([[:space:]]|$)|watch descriptor issue when adding watch for .*/\.clamav-unlink-[^/[:space:]]+/\.rename-noreplace-(src|dst)([[:space:]]|$)|issue when adding watch for .*/\.clamav-unlink-[^/[:space:]]+/\.rename-noreplace-(src|dst)([[:space:]]|$))'
 
     known_race="$(
         printf '%s\n' "$out" |
