@@ -11,24 +11,24 @@ A Bash deployment script for ClamAV real-time/on-access protection using:
 The script configures recursive monitoring, prevention, optional quarantine, socket permissions, service resilience, and functional EICAR self-tests.
 Status: Tested by the maintainer on Ubuntu 26.04 (Resolute) with ClamAV 1.5.4+dfsg-0ubuntu0.26.04.1. The script accepts Debian/Ubuntu/Kali systems and derivatives identified through ID/`ID_LIKE`, but that does not mean every release or derivative has been tested. Pilot it on the exact distribution and ClamAV version you intend to deploy.
 
-What it configures
-Area	Default behavior
-Watched paths	/home, /root, /tmp, /var/tmp, /dev/shm
-Recursive monitoring	Enabled through ClamAV DDD
-On-access prevention	Enabled
-ExtraScanning	Disabled
-Quarantine	Enabled; /var/lib/clamav-quarantine
-Quarantine permissions	root:root, mode 0700
-Maximum on-access file size	5M
-Scanner account exclusion	clamav
-Internal quarantine staging exclusion	.clamav-unlink-* paths and descendants
-clamd socket	0660, owner/group clamav:clamav when socket activation is available
-On-access log	/var/log/clamav/clamonacc.log
-Log retention	26 weekly rotations (approximately six months)
-Failure handling	systemd restart policy and clamav-alert syslog event
+## What it configures
+Area:	Default behavior
+Watched paths:	/home, /root, /tmp, /var/tmp, /dev/shm
+Recursive monitoring:	Enabled through ClamAV DDD
+On-access prevention:	Enabled
+ExtraScanning:	Disabled
+Quarantine:	Enabled; /var/lib/clamav-quarantine
+Quarantine permissions:	root:root, mode 0700
+Maximum on-access file: size	5M
+Scanner account exclusion:	clamav
+Internal quarantine staging exclusion:	.clamav-unlink-* paths and descendants
+clamd socket:	0660, owner/group clamav:clamav when socket activation is available
+On-access log:	/var/log/clamav/clamonacc.log
+Log retention:	26 weekly rotations (approximately six months)
+Failure handling:	systemd restart policy and clamav-alert syslog event
 
 
-The script also checks inotify directory-watch capacity, verifies the clamd socket, checks AppArmor confinement where available, and validates systemd restart/alert configuration.
+## The script also checks inotify directory-watch capacity, verifies the clamd socket, checks AppArmor confinement where available, and validates systemd restart/alert configuration.
 Important coverage limitations
 This is not a claim of complete filesystem coverage.
 - /run/user/* is not monitored by default. Per-user runtime directories can contain FUSE mounts that root cannot traverse.
