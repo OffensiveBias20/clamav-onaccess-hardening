@@ -948,10 +948,8 @@ fi
     echo "TemporaryDirectory ${TEMP_DIR}"
     echo "OnAccessMaxFileSize 5M"
     echo "OnAccessPrevention ${PREVENTION}"
-    # DDD remains enabled (default): recursive monitoring and ExtraScanning.
-
     # Keep DDD enabled for recursive directory coverage.
-    # Disable extra create/move scanning to avoid duplicate quarantine scans.
+    # Disable ExtraScanning to reduce duplicate create/move quarantine scans.
     echo "OnAccessExtraScanning no"
 
     echo "EnableReloadCommand ${ENABLE_RELOAD}"
